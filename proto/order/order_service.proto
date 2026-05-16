@@ -1,13 +1,14 @@
 syntax = "proto3";
 package order;
 
-option go_package = "github.com/immxrtalbeast/order_microservices/internal/protos/gen/go/order";
+option go_package = "github.com/immxrtalbeast/order_protos/gen/go/order";
 import "google/protobuf/timestamp.proto";
 
 service OrderService{
     rpc CreateOrder(CreateOrderRequest) returns (CreateOrderResponse);
     rpc Order(OrderRequest) returns (OrderResponse);
     rpc ListOrders(ListOrdersRequest) returns (ListOrdersResponse);
+    rpc ListAllOrders(ListAllOrdersRequest) returns (ListOrdersResponse);
     rpc DeleteOrder(DeleteOrderRequest) returns (DeleteOrderResponse);
 }
 
@@ -44,6 +45,11 @@ message ListOrdersResponse{
     repeated Order orders = 1;
 }
 
+message ListAllOrdersRequest{
+    int32 limit = 1;
+    int32 offset = 2;
+}
+
 message DeleteOrderRequest{
     string order_id = 1;
 }
@@ -67,6 +73,7 @@ enum OrderStatus{
     PROCESSING = 1;
     COMPLETED = 2;
     CANCELLED = 3;
+    PENDING = 4;
 }
 
 
