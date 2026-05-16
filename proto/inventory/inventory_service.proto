@@ -1,7 +1,7 @@
 syntax = "proto3";
 package inventory;
 
-option go_package = "github.com/immxrtalbeast/order_microservices/internal/protos/gen/go/inventory";
+option go_package = "github.com/immxrtalbeast/order_protos/gen/go/inventory";
 
 service Inventory {
     rpc ListProducts (ListProductsRequest) returns (ListProductsResponse);
