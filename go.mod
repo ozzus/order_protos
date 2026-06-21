@@ -1,4 +1,4 @@
-module github.com/immxrtalbeast/order_protos
+module github.com/ozzus/order_protos
 
 go 1.24.5
 
